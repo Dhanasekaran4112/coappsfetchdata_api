@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import React from 'react';
+import axios from 'axios';
+import { useState,useEffect } from 'react';
 import './App.css';
 
 function App() {
+
+  const[Data, setData]=useState([])
+
+  const getdata=async()=>{
+    const response=await axios.get('https://randomuser.me/api/')
+    setData(response.data.results)
+  }
+
+  useEffect(()=>{
+    getdata();
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {Data.map((data,index)=>(
+        <>
+          <p>Name : {data.name.title} {data.name.first}{data.name.last}</p>
+          <p>Gender : {data.gender}</p>
+          <p>Email : {data.gender}</p>
+        </>
+          ))
+      }
     </div>
   );
 }
