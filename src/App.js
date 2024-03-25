@@ -20,9 +20,13 @@ function App() {
     <div>
       {Data.map((data,index)=>(
         <>
-          <p>Name : {data.name.title} {data.name.first}{data.name.last}</p>
-          <p>Gender : {data.gender}</p>
-          <p>Email : {data.gender}</p>
+          <p><b>Name</b> : {data.name.title} {data.name.first}{data.name.last}</p>
+          <p><b>Gender</b> : {data.gender}</p>
+          <p><b>Email</b> : {data.email}</p>
+          <p><b>City</b>: {data.location.city}</p>
+          <p><b>State</b> : {data.location.state}</p>
+          <p><b>Country </b>: {data.location.country}</p>
+          <p><b>Postcode</b> : {data.location.postcode}</p>
         </>
           ))
       }
